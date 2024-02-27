@@ -11,6 +11,8 @@ const headerStyle: React.CSSProperties = {
     paddingInline: 48,
     lineHeight: '64px',
     backgroundColor: '#4096ff',
+    borderBottomLeftRadius: "12px",
+    borderBottomRightRadius: "12px",
 };
 
 const contentStyle: React.CSSProperties = {

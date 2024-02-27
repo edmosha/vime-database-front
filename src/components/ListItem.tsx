@@ -1,9 +1,9 @@
 import React, {type FC} from 'react';
 import styled from "styled-components";
-import {Skeleton, Typography} from 'antd';
+import { Skeleton, Typography } from 'antd';
 import {DataType} from "../types";
 
-const {Paragraph} = Typography;
+const {Paragraph, Link} = Typography;
 
 interface Props {
     item: DataType;
@@ -15,17 +15,19 @@ const ListItem: FC<Props> = ({item, isLoad}) => {
         <ItemContainer>
             <div style={textContainer}>
                 <Skeleton paragraph={false} loading={isLoad} active>
-                    <Paragraph copyable>{item.name}</Paragraph>
+                    <Paragraph style={paragraph} copyable>{item.name}</Paragraph>
                 </Skeleton>
             </div>
             <div style={textContainer}>
                 <Skeleton paragraph={false} loading={isLoad} active>
-                    <Paragraph copyable>{item.ip}</Paragraph>
+                  <Link href={`https://check-host.net/ip-info?host=${item.ip}`} target="_blank">
+                    <Paragraph style={{...paragraph, color: "#1677ff"}} copyable>{item.ip}</Paragraph>
+                  </Link>
                 </Skeleton>
             </div>
             <div style={{...textContainer, maxWidth: "20%"}}>
                 <Skeleton paragraph={false} loading={isLoad} active>
-                    <Paragraph>{item.crypt}</Paragraph>
+                    <Paragraph style={paragraph}>{item.crypt}</Paragraph>
                 </Skeleton>
             </div>
         </ItemContainer>
@@ -42,6 +44,10 @@ const ItemContainer = styled.div`
 const textContainer: React.CSSProperties = {
     width: "40%",
     textAlign: "left",
+};
+
+const paragraph: React.CSSProperties = {
+  margin: "10px 0",
 };
 
 export default ListItem;

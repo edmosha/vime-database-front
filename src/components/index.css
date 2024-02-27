@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.list-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    margin-top: 50px;
+    padding: 15px 25px;
+    background: #fff;
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 30px 15px;
+    }
+
+    .list-container {
+        margin-top: 30px;
+        padding: 10px 10px;
+    }
+
+    div {
+        font-size: 0.7rem !important;
+    }
+}
