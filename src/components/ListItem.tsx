@@ -1,7 +1,7 @@
 import React, {type FC} from 'react';
 import styled from "styled-components";
 import {Skeleton, Typography} from 'antd';
-import {DataType} from "../types/types";
+import {DataType} from "../types";
 
 const {Paragraph} = Typography;
 

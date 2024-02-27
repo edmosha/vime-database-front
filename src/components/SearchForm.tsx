@@ -2,11 +2,10 @@ import React, {type FC, useState} from 'react';
 import {SearchProps} from "antd/es/input/Search";
 import {Input, List, Flex} from 'antd';
 import ListItem from "./ListItem";
-import {DataType} from "../types/types";
+import {DataType} from "../types";
+import { apiUrl } from '../constants';
 
 const {Search} = Input;
-
-const dataUrl = `http://165.227.143.6:8080`;
 
 const SearchForm: FC = () => {
     const [loading, setLoading] = useState(false);
@@ -15,7 +14,7 @@ const SearchForm: FC = () => {
     const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
         if (value) {
             setLoading(true);
-            fetch(dataUrl + "/govno/user?item=" + value)
+            fetch(apiUrl + "/user?item=" + value)
                 .then((res) => res.json())
                 .then((res) => {
                     setLoading(false);
@@ -47,6 +46,7 @@ const SearchForm: FC = () => {
                         className="demo-loadmore-list"
                         itemLayout="horizontal"
                         dataSource={data}
+                        locale={{emptyText: "Ничего не найдено"}}
                         style={{width: "100%"}}
                         renderItem={(item) => (
                             <List.Item>
